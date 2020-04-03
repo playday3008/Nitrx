@@ -27,6 +27,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="config.json" />
     <Content Include="proxy.txt" />
     <Content Include="requirements.txt" />
   </ItemGroup>
