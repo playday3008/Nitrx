@@ -164,7 +164,21 @@ def nitrx(code, headers, proxy):
 
 if __name__ == '__main__':
     try:
-        msg = f""" {header}
+        if os.name == 'nt':
+            msg = f""" 
+        ██████╗ ██╗      █████╗ ██╗   ██╗██████╗  █████╗ ██╗   ██╗
+        ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗╚██╗ ██╔╝
+        ██████╔╝██║     ███████║ ╚████╔╝ ██║  ██║███████║ ╚████╔╝
+        ██╔═══╝ ██║     ██╔══██║  ╚██╔╝  ██║  ██║██╔══██║  ╚██╔╝
+        ██║     ███████╗██║  ██║   ██║   ██████╔╝██║  ██║   ██║
+        ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝   ╚═╝\n
+                    By GitHub playday3008 \n
+
+        1- [Auto] Generator and Scann
+        2- Check Codes From [LIST]
+        """
+        else:
+            msg = f""" {header}
         ██████╗ ██╗      █████╗ ██╗   ██╗██████╗  █████╗ ██╗   ██╗
         ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗╚██╗ ██╔╝
         ██████╔╝██║     ███████║ ╚████╔╝ ██║  ██║███████║ ╚████╔╝
@@ -177,18 +191,25 @@ if __name__ == '__main__':
         {red}2{green}- {blue}Check Codes From {yellow}[{reset}LIST{yellow}]
         """
 
+
         for l in msg:
             time.sleep(.005)
             print(l, end='')
         try:
-            option = int(input("\n" + red + "    [?] Chose : "+cyan))
+            if os.name == 'nt':
+                option = int(input("\n    [?] Chose : "))
+            else:
+                option = int(input("\n" + red + "    [?] Chose : "+cyan))
         except:
             exit('    [?] Invalid option..')
         if option == 2:
             file = input("    [?] File : ")
             codes = open(file, "r")
             codes = codes.readlines()
-        print(green+"    [?] Table info : Code - Status - Proxy")
+        if os.name == 'nt':
+            print("    [?] Table info : Code - Status - Proxy")
+        else:
+            print(green+"    [?] Table info : Code - Status - Proxy")
         mythreads = []
         pr = multiprocessing.Process(target=process)
         pr.start()
